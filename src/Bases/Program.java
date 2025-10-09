@@ -9,6 +9,8 @@ package Bases;
 
 //Par convention, le nom d'une classe se fait avec la première lettre en majuscule et les autres (variables...) en camelCase
 
+import java.util.Scanner;
+
 public class Program {
     public static void main(String[] args) { //cette méthode est le point d'entrée du programme
         //-----------------------------------------
@@ -280,8 +282,35 @@ public class Program {
 
 
 
+        // LES CONSTANTES
+
+        final int CONSTANTE = 3;
+        //CONSTANTE = 4;  // on ne peut pas changer la valeur d'une constante
+        final int variable_immuable;
+        //variable_immuable = 14;  // Dès que la variable reçoit une valeur, elle devient immuable
+        //variable_immuable = 15;  // on ne peut pas changer la valeur d'une variable immuable
+
+        System.out.print("Entrez un nombre : ");
+        Scanner sc = new Scanner(System.in);
+        variable_immuable = sc.nextInt();
+
+        System.out.println("variable_immuable = " + variable_immuable);
+
+
+        final var bootschap = "Bonjour";
+        // bootschap = bootschap + " coucou";
+
+
         //-----------------------------------------
         //-----------------------------------------
+
+
+        // PS C:\Users\gerar\IdeaProjects\esa_java\src\Bases> javac Program.java
+        //OU
+        //PS C:\Users\gerar\IdeaProjects\esa_java\src\Bases> javac .\Program.java
+        //puis
+        //PS C:\Users\gerar\IdeaProjects\esa_java\src\Bases> cd..
+        //PS C:\Users\gerar\IdeaProjects\esa_java\src> java Bases/Program
 
 
     }
