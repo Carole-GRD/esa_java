@@ -1,6 +1,6 @@
-package Bases;
+package Devoirs;
 
-public class Devoir_01_suite_correction {
+public class Devoir_02 {
     public static void main(String[] args) {
         var compteur = 0L;
         var prime = true;

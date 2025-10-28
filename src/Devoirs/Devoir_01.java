@@ -1,4 +1,4 @@
-package Bases;
+package Devoirs;
 
 public class Devoir_01 {
     public static void main(String[] args) {
@@ -37,8 +37,6 @@ public class Devoir_01 {
         for (int i = lettres.length - 1; i >= 0; i--) {
             lettresMAJ[lettres.length - 1 - i] = Character.toUpperCase(lettres[i]);
         }
-
-        //
 
         //for (int i = 0; i < 26; i++) {
         //    System.out.println(lettresMAJ[i]);
