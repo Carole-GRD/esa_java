@@ -1,6 +1,9 @@
-package Interfaces;
+package Interfaces_fonctionnelles;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.Random;
 import java.util.function.*;
 
 public class TestInterfaceFonctionnelle {
@@ -99,6 +102,35 @@ public class TestInterfaceFonctionnelle {
 
         System.out.println(function.apply("12"));
 
+
+        Predicate<String> notNull = S -> Objects.nonNull(S);
+        Predicate<String> longueur = S -> S.length() >= 10;
+        Predicate<String> chiffre = S -> S.chars().anyMatch(Character::isDigit);
+        Predicate<String> majuscule = S -> S.chars().anyMatch(Character::isUpperCase);
+        Predicate<String> minuscule = S -> S.chars().anyMatch(Character::isLowerCase);
+        Predicate<String> special = S -> S.matches("(?=.*[-+_!@#$%^&*., ?]).+$");
+
+        Predicate<String> isOK = notNull.and(longueur).and(chiffre).and(majuscule).and(minuscule).and(special);
+        System.out.printf("@Null        -> %b%n", isOK.test(null));
+        System.out.printf("             -> %b%n", isOK.test(""));
+        System.out.printf("rendez       -> %b%n", isOK.test("rendez"));
+        System.out.printf("rendezvous   -> %b%n", isOK.test("rendezvous"));
+        System.out.printf("rendezvous2  -> %b%n", isOK.test("rendezvous2"));
+        System.out.printf("Rendezvous2  -> %b%n", isOK.test("Rendezvous2"));
+        System.out.printf("Rendez-vous2 -> %b%n", isOK.test("Rendez-vous2"));
+
+        int[] tab = new int[50];
+        var random = new Random();
+        IntUnaryOperator i = (index) -> random.nextInt();
+        Arrays.setAll(tab, i);
+        Consumer<Integer> pairImpair = index ->
+                System.out.printf("%d : %s%n", index, switch (index % 2) {
+                    case 0 -> "Pair";
+                    default -> "impair";
+                });
+        for (int value : tab) {
+            pairImpair.accept(value);
+        }
 
 
     }
